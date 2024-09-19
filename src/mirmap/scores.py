@@ -91,7 +91,7 @@ def calc_scores(
     )
 
     # Probabilistic features
-    scores["prob_exact"] = prob_exact.calc_prob_exact(target, if_spatt)
+    # scores["prob_exact"] = prob_exact.calc_prob_exact(target, if_spatt) # TODO: Fix Spatt
     scores["prob_binomial"] = prob_binomial.calc_prob_binomial(target)
 
     # Evolutionary features
