@@ -91,7 +91,8 @@ def calc_scores(
     )
 
     # Probabilistic features
-    scores["prob_exact"] = prob_exact.calc_prob_exact(target, if_spatt)
+    # scores["prob_exact"] = prob_exact.calc_prob_exact(target, if_spatt) # TODO: Fix Spatt
+    scores["prob_exact"] = float("nan")
     scores["prob_binomial"] = prob_binomial.calc_prob_binomial(target)
 
     # Evolutionary features
@@ -127,7 +128,9 @@ def calc_scores(
             )
 
     # miRmap score
-    scores["mirmap_score"] = model.calc_mirmap(target, model.full_mirmap_models, scores)
+    scores["mirmap_score"] = model.calc_mirmap(
+        target, model.python_only_mirmap_models, scores
+    )  # Added python_only_mirmap_models
 
     return scores
 
